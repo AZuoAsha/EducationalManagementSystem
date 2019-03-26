@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cdut.com.cn.ems.mappers.AssessMapper">
+    <insert id="add" parameterType="_Assess" useGeneratedKeys="true">
+        insert into assess(assessmenter,teacherName,workAssess,problemType,problemContent,assessTime) values(#{assessmenter},#{teacherName},#{workAssess},#{problemType},#{problemContent},#{assessTime})
+    </insert>
+    
+</mapper>

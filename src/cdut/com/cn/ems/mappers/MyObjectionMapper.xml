@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cdut.com.cn.ems.mappers.MyObjectionMapper">
+    <insert id="addObjection" parameterType="_MyObjection" useGeneratedKeys="true">
+        insert into objection(student_id,student_name,mtitle,objectionContext,objectionType,createTime,status,objectionName) values(#{student_id},#{student_name},#{mtitle},#{objectionContext},#{objectionType},#{createTime},#{status},#{objectionName})
+    </insert>
+    <select id="findList" parameterType="String" resultType="_MyObjection">
+		 select * from objection where student_id=#{student_id}
+	</select>
+	
+</mapper>

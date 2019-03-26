@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+     <!--整合Spring的时候 只有 settings typeAliases mapper 三个属性有用, 其余的要在spring总配置文件中会覆盖 -->
+    <settings>
+        <!-- 全局映射器，是否启用缓存 -->
+        <setting name="cacheEnabled" value="false" />
+        <!-- 查询时，关闭关联对象即时加载以提高性能 -->
+        <!-- 设置关联对象加载的形态，此处为按需加载字段(加载字段由SQL指 定)，不会加载关联表的所有字段，以提高性能 -->
+        <setting name="aggressiveLazyLoading" value="false" />
+        <!-- 对于未知的SQL查询，允许返回不同的结果集以达到通用的效果 -->
+        <setting name="multipleResultSetsEnabled" value="true" />
+        <!-- 允许使用列标签代替列名 -->
+        <setting name="useColumnLabel" value="true" />
+        <!-- 允许使用自定义的主键值(比如由程序生成的UUID 32位编码作为键值)，数据表的PK生成策略将被覆盖 -->
+        <setting name="useGeneratedKeys" value="true" />
+        <!-- 给予被嵌套的resultMap以字段-属性的映射支持 -->
+        <setting name="autoMappingBehavior" value="FULL" />
+        <!-- 对于批量更新操作缓存SQL以提高性能 -->
+        <!-- <setting name="defaultExecutorType" value="BATCH" /> -->
+        <!-- 数据库超过25000秒仍未响应则超时 -->
+        <setting name="defaultStatementTimeout" value="25000" />
+    </settings>
+	<typeAliases>
+		<typeAlias type="cdut.com.cn.ems.entity.Student" alias="_Student"/>	
+		<typeAlias type="cdut.com.cn.ems.entity.Assess" alias="_Assess"/>
+		<typeAlias type="cdut.com.cn.ems.entity.Message" alias="_Message"/>
+		<typeAlias type="cdut.com.cn.ems.entity.MyBook" alias="_MyBook"/>
+		<typeAlias type="cdut.com.cn.ems.entity.MyScore" alias="_MyScore"/>
+		<typeAlias type="cdut.com.cn.ems.entity.MyExamination" alias="_MyExamination"/>
+		<typeAlias type="cdut.com.cn.ems.entity.MyFinancial" alias="_MyFinancial"/>
+		<typeAlias type="cdut.com.cn.ems.entity.MyObjection" alias="_MyObjection"/>
+		<typeAlias type="cdut.com.cn.ems.entity.CollegeNotice" alias="_CollegeNotice"/>
+		<typeAlias type="cdut.com.cn.ems.entity.DownLoadAndUploadMaterial" alias="_DownLoadAndUploadMaterial"/>
+	</typeAliases>
+	<mappers>
+	<!-- 所有mapper文件填写的位置 -->
+	<mapper resource="cdut/com/cn/ems/mappers/StudentMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/AssessMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/MessageMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/MyBookMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/MyScoreMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/MyExaminationMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/MyFinancialMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/MyObjectionMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/CollegeNoticeMapper.xml"/>
+	<mapper resource="cdut/com/cn/ems/mappers/DownLoadAndUploadMaterialMapper.xml"/>
+	</mappers>
+</configuration>

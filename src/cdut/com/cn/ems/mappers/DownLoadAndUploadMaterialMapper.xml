@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cdut.com.cn.ems.mappers.DownLoadAndUploadMaterialMapper">
+    <select id="findOne" parameterType="String" resultType="_DownLoadAndUploadMaterial">
+		 select * from material where materialId=#{materialId}
+	</select>
+    <select id="findList" resultType="_DownLoadAndUploadMaterial">
+		 select * from material
+	</select>
+	<select id="findList2" resultType="_DownLoadAndUploadMaterial">
+		 select * from material limit #{startPage},#{count}
+	</select>
+	<insert id="addFile" parameterType="_DownLoadAndUploadMaterial" useGeneratedKeys="true">
+        insert into material(materialId,materialName,materialType,uploadTime,filePath) values(#{materialId},#{materialName},#{materialType},#{uploadTime},#{filePath})
+    </insert>
+</mapper>

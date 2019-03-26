@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cdut.com.cn.ems.mappers.StudentMapper">
+    <insert id="add" parameterType="_Student" useGeneratedKeys="true">
+        insert into student(student_id,student_idcard,password,confirmpassword) values(#{student_id},#{student_idcard},#{password},#{confirmpassword})
+    </insert>
+    <select id="login" parameterType="_Student" resultType="_Student">
+		 select * from student where student_id=#{student_id} and password=#{password}
+	</select>
+	<select id="findOne" parameterType="_Student" resultType="_Student">
+		 select * from student where student_id=#{student_id}
+	</select>
+	<update id="update">
+	    update student set password=#{password},confirmpassword=#{confirmpassword} where student_id=#{student_id}
+	</update>
+	
+	<update id="updatePhone">
+	    update student set phone=#{phone} where student_id=#{student_id}
+	</update>
+	<update id="updateHeader">
+	    update student set student_header=#{student_header} where student_id=#{student_id}
+	</update>
+</mapper>
